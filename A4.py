@@ -62,6 +62,8 @@ for s in decoyCorpus.tagged_sents(): #nyt_mini.tagged_sents()[0:1]:
 
 		print Chunked1
 		print 
+		print Chunked1[0]
+		print
 
 		outfile.write(Chunked1.pprint());
 		outfile.write('\n\n')

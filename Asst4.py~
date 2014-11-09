@@ -32,7 +32,7 @@ from Asst4 import DefaultNpChunker ## a simple NP chunker to get things started
 # To use it we need to prepend the following directory to the 
 # NLTK search path for corpora and other data
 import nltk
-nltk.data.path[0:0] = ['nltk'] #['/u/csc2501h/include/a4/nltk']
+nltk.data.path[0:0] = ['/u/csc2501h/include/a4/nltk']
 
 # Now we can import wordnet 1.7 instead of later versions 
 from nltk.corpus import wordnet as wn17
@@ -43,15 +43,9 @@ from nltk.corpus import wordnet as wn17
 from nltk.data         import ZipFilePathPointer
 from nltk.corpus       import TaggedCorpusReader
 
-nyt_zipped = ZipFilePathPointer('nltk/corpora/nyt.zip')
-#('/u/csc2501h/include/a4/nltk/corpora/nyt.zip')
+nyt_zipped = ZipFilePathPointer('/u/csc2501h/include/a4/nltk/corpora/nyt.zip')
 nyt_big    = TaggedCorpusReader(nyt_zipped,'nyt/2004-tagged.txt',sep='/')
 nyt_mini   = TaggedCorpusReader(nyt_zipped,'nyt/nytimes-mini.txt',sep='/')
-
-# DECOY CORPUS
-decoy_zipped = ZipFilePathPointer('decoy.zip')
-decoyCorpus = TaggedCorpusReader(decoy_zipped,'SexyDecoys.txt',sep='/')
-
 
 # Finally, let's set up a default pattern for NP chunking
 # Setting up the NP chunker itself is left to the main script, to encourage
@@ -59,5 +53,5 @@ decoyCorpus = TaggedCorpusReader(decoy_zipped,'SexyDecoys.txt',sep='/')
 
 DefaultNpPattern = ''.join([r'(<DT|AT>?<RB>?)?',
 			    r'<JJ.*|CD.*>*',
-			    r'(<JJ.*|CD.*><,>)*',
+			    r'(<JJ.*|CD.*><,>)*'
 			    r'(<N.*>)+'])

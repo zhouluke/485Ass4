@@ -39,10 +39,13 @@ ChunkRule1 = ChunkRule(Pattern1, 'Rule #1')
 Chunker1 = RegexpChunkParser([ChunkRule1], chunk_node='woot',top_node='S')
 """
 
-Pattern1 = """ woot: {<NP><,>?<JJ><IN><NP>((<,><NP>)*<,>?<CC><NP>)?}
-			}<JJ><IN>{ 
-			}<CC>{
-			}<,>{ """ 
+Pattern1 = """ 	woot: {<NP><,>?<JJ><IN><NP>((<,><NP>)*<,>?<CC><NP>)?} 
+						}<JJ><IN>{ 
+						}<CC>{
+						}<,>{ 
+				suchP: {<JJ>}
+				asP: {<IN>}
+				conjP: {<CC>} """ 
 Chunker1 = RegexpParser(Pattern1)
 
 # Save all hyponym suggestions in a text file
@@ -59,22 +62,29 @@ for s in decoyCorpus.tagged_sents(): #nyt_mini.tagged_sents()[0:1]:
 	try:
 		NPChunked = NpChunker.parse(s)
 		Chunked1 = Chunker1.parse(NPChunked)
+		Chunked1NPs = list(Chunked1.subtrees(lambda np: np.node=="woot"))
 
-		print Chunked1
-		print 
-		print Chunked1[0]
-		print
+		for i in Chunked1.subtrees(lambda i: i.node=="suchP" or i.node=="asP" or i.node=="conjP"):
+			nodeWord = i.leaves()[0][0]
+			if(nodeWord!="such" and nodeWord!="as" and nodeWord!="and" and nodeWord!="or"):
+				raise StopIteration
 
-		outfile.write(Chunked1.pprint());
-		outfile.write('\n\n')
+		FirstNP = Chunked1NPs[0].leaves()[0][0]
 
-		'''	for targetNP in q:
-		#	if targetNP.label()=='woot':
-		#		print targetNP
-			print targetNP.label()
-		'''
+		for np in Chunked1NPs[1:len(Chunked1NPs)]:
+			print FirstNP + ", " + np.leaves()[0][0]
+
+			#outfile.write(Chunked1.pprint());
+			outfile.write(FirstNP + ", " + np.leaves()[0][0]);
+			outfile.write('\n')
+
+		outfile.write('\n')
+
 	except TypeError:
-		print 'FAIL'
+		#print 'FAIL'
+		pass
+	except StopIteration:
+		#print 'cock'
 		pass
 
 

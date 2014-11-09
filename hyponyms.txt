@@ -1,40 +1,8 @@
-(S
-  (woot (NP birds/NN))
-  such/JJ
-  as/IN
-  (woot (NP chickens/NN))
-  ,/,
-  (woot (NP mongooses/NN))
-  ,/,
-  and/CC
-  (woot (NP ptarmigans/NN))
-  persuaded/VBD
-  him/PP
-  ./SENT)
+birds, chickens
+birds, mongooses
+birds, ptarmigans
 
-(S
-  (woot (NP birds/NN))
-  such/JJ
-  as/IN
-  (woot (NP chickens/NN))
-  ,/,
-  (woot (NP mongooses/NN))
-  or/CC
-  (woot (NP ptarmigans/NN))
-  persuaded/VBD
-  him/PP
-  ./SENT)
-
-(S
-  (woot (NP birds/NN))
-  just/JJ
-  for/IN
-  (woot (NP chickens/NN))
-  ,/,
-  (woot (NP mongooses/NN))
-  or/CC
-  (woot (NP ptarmigans/NN))
-  persuaded/VBD
-  him/PP
-  ./SENT)
+birds, chickens
+birds, mongooses
+birds, ptarmigans
 

@@ -74,9 +74,7 @@ for s in decoyCorpus.tagged_sents(): #nyt_mini.tagged_sents()[0:1]:
 		for np in Chunked1NPs[1:len(Chunked1NPs)]:
 			print FirstNP + ", " + np.leaves()[0][0]
 
-			#outfile.write(Chunked1.pprint());
-			outfile.write(FirstNP + ", " + np.leaves()[0][0]);
-			outfile.write('\n')
+			outfile.write(FirstNP + " " + np.leaves()[0][0] + '\n');
 
 		outfile.write('\n')
 

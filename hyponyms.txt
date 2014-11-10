@@ -2,9 +2,9 @@ chickens, birds
 mongooses, birds
 ptarmigans, birds
 
-JEFFREY STEELE, many men
-his partner, many men
-his father, many men
+JEFFREY STEELE, men
+partner, men
+father, men
 
 stock, assets
 
@@ -13,20 +13,20 @@ shopping malls, foreigners
 restaurants, foreigners
 cafes, foreigners
 
-an exercise, program
+exercise, program
 
-''relieve emotional pain, weight
+pain, weight
 
-Jews, the groups
-slave laborers, the groups
+Jews, groups
+slave laborers, groups
 
-foie gras, delightful effect
-beet, delightful effect
-asparagus salad, delightful effect
+foie gras, effect
+beet, effect
+asparagus salad, effect
 
-roast pepper, Italian specialties
+roast pepper, specialties
 
-an extravaganza, lavish excess
+extravaganza, excess
 
-an aquatic center, a mixed-use project
+center, mixed-use project
 

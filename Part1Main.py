@@ -32,9 +32,9 @@ from Asst4 import decoyCorpus
 
 print "==========================================="
 
-# just for the purpose of illustration, print the output of the 
-# NP Chunker for the first 3 sentences of nyt_mini
-for s in decoyCorpus.tagged_sents(): #nyt_mini.tagged_sents()[0:1]:
+# Perform chunking and Regex analysis with Hearst's patterns!
+#for s in nyt_big.tagged_sents(): 
+for s in decoyCorpus.tagged_sents():
 	#print s
 	
 	try:

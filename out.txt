@@ -7,9 +7,9 @@ ptarmigans, birds
 ===========================================
 many men such as JEFFREY STEELE , his partner or his father persuaded me .
 Rule 1 applies!
-JEFFREY STEELE, many men
-his partner, many men
-his father, many men
+JEFFREY STEELE, men
+partner, men
+father, men
 ===========================================
 birds just for chickens , mongooses or ptarmigans persuaded him .
 ===========================================
@@ -36,32 +36,32 @@ People who drive in from other neighborhoods , other cities or other states ca n
 ===========================================
 Self-acceptance is a huge part of his program , including an exercise of standing nude in front of a full-length mirror ( and not reacting as Jack Nicholson did in seeing a middle-aged woman nude in ''Something 's Gotta Give ' ' ) .
 Rule 4 applies!
-an exercise, program
+exercise, program
 ===========================================
 Under ''building motivation , ' ' Dr. Alman lists reasons to lose weight , including ''relieve emotional pain ' ' and ''fit into fashionable clothes .
 Rule 4 applies!
-''relieve emotional pain, weight
+pain, weight
 ===========================================
 ''There 's no compensation for us , ' ' Hans Manthey put in gloomily , making an oblique reference to the groups , especially Jews and slave laborers , who have received some compensation for wartime losses .
 Rule 5 applies!
-Jews, the groups
-slave laborers, the groups
+Jews, groups
+slave laborers, groups
 ===========================================
 Elegant ambience and global influences on the plate -- to sometimes delightful effect , especially foie gras , beet and asparagus salad , meats and seafoods at peak succulence .
 Rule 5 applies!
-foie gras, delightful effect
-beet, delightful effect
-asparagus salad, delightful effect
+foie gras, effect
+beet, effect
+asparagus salad, effect
 ===========================================
 Italian specialties , especially roast pepper with mozzarella , crisp-fried calamari , and calamari and scungilli salad , lift this place above steakhouse status .
 Rule 5 applies!
-roast pepper, Italian specialties
+roast pepper, specialties
 ===========================================
 Pricey meals with lavish excess , including an extravaganza of seafood appetizers and high-end steaks .
 Rule 4 applies!
-an extravaganza, lavish excess
+extravaganza, excess
 ===========================================
 National Resources has put forth a bold concept for Tarrytown : a mixed-use project including an aquatic center with a swimming pool , a public esplanade along the river , commercial space , a relatively low density residential development and a new Village Hall .
 Rule 4 applies!
-an aquatic center, a mixed-use project
+center, mixed-use project
 ===========================================

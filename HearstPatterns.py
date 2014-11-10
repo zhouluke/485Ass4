@@ -18,6 +18,32 @@ def stringify(tree):
 		toReturn = toReturn + n[0] + ' '
 	return toReturn[0:-1]
 
+# Removes determinants and adjectives from an NP, 
+# and returns a linearized string of the head
+def NpHead(NPtree):
+
+	"""for w in NPtree.leaves():
+		print w
+		if w[1]=="NN" or w[1]=="NP" or w[1]=="NNS" or w[1]=="NPS":
+			return w[0]
+	return stringify(NPtree)
+	"""
+	toBattle = NPtree.leaves()
+	#print toBattle
+
+	StripPattern = r"""	head: {(<N.*>)+}
+			    	"""
+	StripChunker = RegexpParser(StripPattern)
+	StripChunked = StripChunker.parse(toBattle)
+
+	#ChunkedHeads = list(StripChunked.subtrees(lambda np: np.node=="head"))
+
+	toReturn = ''
+	for i in StripChunked.subtrees(lambda i: i.node=="head"):
+		toReturn = toReturn + stringify(i)
+
+	return toReturn
+
 # Create chunk parsers for each of Hearst's five lexicosyntactic patterns
 
 ###################################################
@@ -50,13 +76,13 @@ def doPattern1(NpChunked,outfile):
 			return
 
 	print "Rule 1 applies!"
-	FirstNP = stringify(Chunked1NPs[0])
+	FirstNP = NpHead(Chunked1NPs[0])
 
 	# Write Hyponym(a,b) pairs to the file
 	for np in Chunked1NPs[1:len(Chunked1NPs)]:
-		print stringify(np) + ", " + FirstNP
+		print NpHead(np) + ", " + FirstNP
 
-		outfile.write(stringify(np) + ", " + FirstNP + '\n');
+		outfile.write(NpHead(np) + ", " + FirstNP + '\n');
 	outfile.write('\n')
 
 ###################################################
@@ -90,13 +116,13 @@ def doPattern2(NpChunked,outfile):
 			return
 
 	print "Rule 2 applies!"
-	FirstNP = stringify(Chunked2NPs[0])
+	FirstNP = NpHead(Chunked2NPs[0])
 
 	# Write Hyponym(a,b) pairs to the file
 	for np in Chunked2NPs[1:len(Chunked2NPs)]:
-		print stringify(np) + ", " + FirstNP
+		print NpHead(np) + ", " + FirstNP
 
-		outfile.write(stringify(np) + ", " + FirstNP + '\n');
+		outfile.write(NpHead(np) + ", " + FirstNP + '\n');
 	outfile.write('\n')
 
 ###################################################
@@ -128,12 +154,12 @@ def doPattern3(NpChunked,outfile):
 			return
 
 	print "Rule 3 applies!"
-	LastNP = stringify(Chunked3NPs[-1])
+	LastNP = NpHead(Chunked3NPs[-1])
 
 	# Write Hyponym(a,b) pairs to the file
 	for np in Chunked3NPs[0:-1]:
-		print stringify(np) + ", " + LastNP		
-		outfile.write(stringify(np) + ", " + LastNP + '\n');
+		print NpHead(np) + ", " + LastNP		
+		outfile.write(NpHead(np) + ", " + LastNP + '\n');
 	
 	outfile.write('\n')
 
@@ -165,12 +191,12 @@ def doPattern4(NpChunked,outfile):
 			return
 
 	print "Rule 4 applies!"
-	FirstNP = stringify(Chunked4NPs[0])
+	FirstNP = NpHead(Chunked4NPs[0])
 
 	# Write Hyponym(a,b) pairs to the file
 	for np in Chunked4NPs[1:len(Chunked4NPs)]:
-		print stringify(np) + ", " + FirstNP		
-		outfile.write(stringify(np) + ", " + FirstNP + '\n');
+		print NpHead(np) + ", " + FirstNP		
+		outfile.write(NpHead(np) + ", " + FirstNP + '\n');
 	
 	outfile.write('\n')
 
@@ -202,11 +228,11 @@ def doPattern5(NpChunked,outfile):
 			return
 
 	print "Rule 5 applies!"
-	FirstNP = stringify(Chunked5NPs[0])
+	FirstNP = NpHead(Chunked5NPs[0])
 
 	# Write Hyponym(a,b) pairs to the file
 	for np in Chunked5NPs[1:len(Chunked5NPs)]:
-		print stringify(np) + ", " + FirstNP		
-		outfile.write(stringify(np) + ", " + FirstNP + '\n');
+		print NpHead(np) + ", " + FirstNP		
+		outfile.write(NpHead(np) + ", " + FirstNP + '\n');
 	
 	outfile.write('\n')

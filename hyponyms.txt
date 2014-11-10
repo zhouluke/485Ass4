@@ -1,8 +1,32 @@
-birds, chickens
-birds, mongooses
-birds, ptarmigans
+chickens, birds
+mongooses, birds
+ptarmigans, birds
 
-birds, chickens
-birds, mongooses
-birds, ptarmigans
+JEFFREY STEELE, many men
+his partner, many men
+his father, many men
+
+stock, assets
+
+hotels, foreigners
+shopping malls, foreigners
+restaurants, foreigners
+cafes, foreigners
+
+an exercise, program
+
+''relieve emotional pain, weight
+
+Jews, the groups
+slave laborers, the groups
+
+foie gras, delightful effect
+beet, delightful effect
+asparagus salad, delightful effect
+
+roast pepper, Italian specialties
+
+an extravaganza, lavish excess
+
+an aquatic center, a mixed-use project
 

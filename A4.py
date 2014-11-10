@@ -1,10 +1,12 @@
+# Luke Zhou, g3luke, 999079278
+
 #!/usr/bin/env python
 import sys
 
 # TO UNCOMMENT IN THE FINAL SUBMISSION!!!!!!!!
 #sys.path.append('/u/csc2501h/include/a4') 
 
-# TO COMMENT IN THE FINAL SUBMISSION!!!!!
+# TO COMMENT OUT IN THE FINAL SUBMISSION!!!!!
 sys.path.append('')
 
 from Asst4 import nyt_big, nyt_mini #, DefaultNpPattern
@@ -20,39 +22,15 @@ from Asst4 import wn17 as wn
 
 from nltk.tree import Tree
 from nltk.chunk.regexp import *
-
-# Create a chunk parser with the default pattern for NPs
-DefaultNpPattern = ''.join([r'(<DT|AT>?<RB>?)?',
-			    r'<JJ.*|CD.*>*',
-			    r'(<JJ.*|CD.*><,>)*',
-			    r'(<N.*>)+'])
-BaselineNpChunkRule = ChunkRule(DefaultNpPattern, 'Default rule for NP chunking')
-NpChunker = RegexpChunkParser([BaselineNpChunkRule], chunk_node='NP',top_node='S')
-
-# Create chunk parsers for each of Hearst's five lexicosyntactic patterns
-
-"""
-Pattern1 = ''.join([r'<NP>,?',r' such as ', 
-				r'<NP>((, <NP>)*,?((and)|(or)) <NP>)?'])
-Pattern1 = ''.join([r'<NP> such as <NP>'])
-ChunkRule1 = ChunkRule(Pattern1, 'Rule #1')
-Chunker1 = RegexpChunkParser([ChunkRule1], chunk_node='woot',top_node='S')
-"""
-
-Pattern1 = """ 	woot: {<NP><,>?<JJ><IN><NP>((<,><NP>)*<,>?<CC><NP>)?} 
-						}<JJ><IN>{ 
-						}<CC>{
-						}<,>{ 
-				suchP: {<JJ>}
-				asP: {<IN>}
-				conjP: {<CC>} """ 
-Chunker1 = RegexpParser(Pattern1)
+from HearstPatterns import *
 
 # Save all hyponym suggestions in a text file
 outfile = open("hyponyms.txt", "w") 
 
 # IMPORT DECOY CORPUS
 from Asst4 import decoyCorpus
+
+print "==========================================="
 
 # just for the purpose of illustration, print the output of the 
 # NP Chunker for the first 3 sentences of nyt_mini
@@ -61,30 +39,20 @@ for s in decoyCorpus.tagged_sents(): #nyt_mini.tagged_sents()[0:1]:
 	
 	try:
 		NPChunked = NpChunker.parse(s)
-		Chunked1 = Chunker1.parse(NPChunked)
-		Chunked1NPs = list(Chunked1.subtrees(lambda np: np.node=="woot"))
 
-		for i in Chunked1.subtrees(lambda i: i.node=="suchP" or i.node=="asP" or i.node=="conjP"):
-			nodeWord = i.leaves()[0][0]
-			if(nodeWord!="such" and nodeWord!="as" and nodeWord!="and" and nodeWord!="or"):
-				raise StopIteration
+		print stringify(NPChunked)
 
-		FirstNP = Chunked1NPs[0].leaves()[0][0]
-
-		for np in Chunked1NPs[1:len(Chunked1NPs)]:
-			print FirstNP + ", " + np.leaves()[0][0]
-
-			outfile.write(FirstNP + " " + np.leaves()[0][0] + '\n');
-
-		outfile.write('\n')
+		doPattern1(NPChunked,outfile)
+		doPattern2(NPChunked,outfile)
+		doPattern3(NPChunked,outfile)
+		doPattern4(NPChunked,outfile)
+		doPattern5(NPChunked,outfile)
 
 	except TypeError:
 		#print 'FAIL'
 		pass
-	except StopIteration:
-		#print 'cock'
-		pass
 
+	print "==========================================="
 
 # also just for the purpose of illustration, print the synsets 
 # for the word 'assignment'
@@ -94,3 +62,4 @@ for s in decoyCorpus.tagged_sents(): #nyt_mini.tagged_sents()[0:1]:
 
 
 outfile.close()
+

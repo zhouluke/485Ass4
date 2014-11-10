@@ -1,3 +1,5 @@
+# Luke Zhou, g3luke, 999079278
+
 """ 
 
 Components that you need for for Assignment 4 in CSC2501/485, Fall 2010.

@@ -33,8 +33,8 @@ from Asst4 import decoyCorpus
 print "==========================================="
 
 # Perform chunking and Regex analysis with Hearst's patterns!
-#for s in nyt_big.tagged_sents(): 
-for s in decoyCorpus.tagged_sents():
+for s in nyt_big.tagged_sents(): 
+#for s in decoyCorpus.tagged_sents():
 	#print s
 	
 	try:
